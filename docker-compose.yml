@@ -1,0 +1,68 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: task-maneger-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./app:/var/www/task-maneger-app
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - taskManeger
+
+  task-maneger-app:
+    build:
+      args:
+        user: guilherme
+        uid: 1000
+      context: ./app
+      dockerfile: Dockerfile
+    image: task-maneger-app
+    container_name: task-maneger-app
+    restart: unless-stopped
+    working_dir: /var/www/task-maneger-app
+    volumes:
+      - ./app:/var/www/task-maneger-app
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=task-maneger-db"
+      - "DB_DATABASE=task-maneger"
+      - "DB_USERNAME=root"
+      - "DB_PASSWORD=root"
+    depends_on:
+      - db
+    networks: 
+      - taskManeger
+
+  db:
+    image: postgres
+    container_name: task-maneger-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: root
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./postgres/db_init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    networks:
+      - taskManeger
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - ~/.docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
+
+volumes:
+  db:
+    driver: local
+    
+networks:
+  taskManeger:
+    driver: bridge
