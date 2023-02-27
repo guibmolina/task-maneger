@@ -41,12 +41,13 @@ services:
     container_name: task-maneger-db
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: root
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: taskManeger
     volumes:
-      - db:/var/lib/postgresql/data
-      - ./postgres/db_init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
     networks:
       - taskManeger
 
@@ -59,9 +60,6 @@ services:
     volumes:
       - ~/.docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
 
-volumes:
-  db:
-    driver: local
     
 networks:
   taskManeger:
