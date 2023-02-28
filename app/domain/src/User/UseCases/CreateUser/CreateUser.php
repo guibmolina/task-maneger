@@ -6,18 +6,14 @@ namespace Domain\User\UseCases\CreateUser;
 
 use Domain\User\Entities\UserEntity;
 use Domain\User\Repositories\UserRepository;
-use Domain\User\Services\SignOnUser;
 
 class CreateUser
 {
     public UserRepository $repository;
 
-    public SignOnUser $service;
-
-    public function __construct(UserRepository $repository, SignOnUser $service)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
-        $this->service = $service;
     }
 
     public function execute(DTO $DTO): Response
@@ -28,9 +24,6 @@ class CreateUser
 
         $userSaved = $this->repository->create($user);
 
-        $userAuthenticated = $this->service->signOn($userSaved);
-
-        return new Response($userAuthenticated);
+        return new Response($userSaved);
     }   
 }
-

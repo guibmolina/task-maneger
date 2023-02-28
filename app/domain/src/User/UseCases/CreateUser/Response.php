@@ -19,7 +19,6 @@ class Response
     {
         return [
             'id' => $this->entity->id,
-            'token' => $this->entity->token
         ];
     }
 }

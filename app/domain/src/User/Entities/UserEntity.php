@@ -11,7 +11,7 @@ class UserEntity
 {
     public ?int $id = null;
 
-    public string $name;
+    public ?string $name;
 
     private string $email;
 
@@ -21,7 +21,7 @@ class UserEntity
 
     public function __construct(
         ?int $id,
-        string $name,
+        ?string $name,
         string $email,
         string $password,
         ?string $token
