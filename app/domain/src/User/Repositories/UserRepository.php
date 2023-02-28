@@ -6,7 +6,7 @@ namespace Domain\User\Repositories;
 
 use Domain\User\Entities\UserEntity;
 use Domain\User\Exceptions\NotCreateUserException;
-
+use Domain\User\List\UserList;
 
 interface UserRepository
 {
@@ -15,5 +15,6 @@ interface UserRepository
      */
     public function create(UserEntity $user): UserEntity;
 
+    public function allUsers(): UserList;
     
 }

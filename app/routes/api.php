@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::prefix('v1')->group(function () {
-    Route::post('/user', [UserController::class, 'store']);
+    Route::post('/users', [UserController::class, 'store']);
     Route::post('/auth', [AuthController::class, 'signOn']);
+    Route::get('/users', [UserController::class, 'index']);
 });
-
-
-
-// php artisan cache:clear
-// php artisan config:clear
-// php artisan route:clear
