@@ -44,7 +44,7 @@ class TaskStatusUpdateMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.taskAttached',
+            view: 'emails.taskUpdateStatus',
             with: [
                 'name' => $this->userEntity->name,
                 'task_title' => $this->taskEntity->title
