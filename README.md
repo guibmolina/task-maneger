@@ -100,7 +100,9 @@ Resposta
 Campo       | Tipo      | Obrigatório   
 ----------- | :------:  | :------:                       
 email       | string     	 | true      
-password  	| string    	 | true   
+password  	| string    	 | true  
+
+
 Lembrando que esse token deve ser passado no *header* como **Authorization: Bearer [token]** de todas  requisições a baixo, é com ele que vamos autenticar o usuário nas requisições.
 
 ###  Listar Usuários
