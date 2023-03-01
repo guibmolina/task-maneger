@@ -1,0 +1,40 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Domain\Task\UseCases\UpdateTask;
+
+class DTO
+{
+    public int $id;
+
+    public string $title;
+
+    public string $description;
+
+    public string $startDate;
+
+    public string $endDate;
+
+    public int $statusId;
+
+    public array $usersId = [];
+
+    public function __construct(
+        int $id,
+        string $title,
+        string $description,
+        string $startDate,
+        string $endDate,
+        int $statusId,
+        array $usersId
+    ) {
+        $this->id = $id;
+        $this->title = $title;
+        $this->description = $description;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+        $this->statusId = $statusId;
+        $this->usersId = $usersId;
+    }
+}

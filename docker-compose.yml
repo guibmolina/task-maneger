@@ -51,15 +51,14 @@ services:
     networks:
       - taskManeger
 
-  rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: rabbitmq_management
+  redis:
+    image: redis
+    container_name: task-maneger-redis
+    command: redis-server --requirepass Redis2019!
     ports:
-      - '5672:5672'
-      - '15672:15672'
-    volumes:
-      - ~/.docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
-
+      - "6379:6379"
+    networks:
+      - taskManeger
     
 networks:
   taskManeger:

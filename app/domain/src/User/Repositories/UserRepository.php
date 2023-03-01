@@ -16,5 +16,7 @@ interface UserRepository
     public function create(UserEntity $user): UserEntity;
 
     public function allUsers(): UserList;
+
+    public function findUsersByIds(array $usersId): UserList;
     
 }

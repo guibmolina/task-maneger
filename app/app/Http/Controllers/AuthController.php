@@ -20,8 +20,6 @@ class AuthController extends Controller
 
     public function signOn(SignOnRequest $request): JsonResponse
     {
-        $request->validated();
-
         $userEntity = new UserEntity(null, null, $request->email, $request->password, null);
         $DTO = new DTO($userEntity);
 

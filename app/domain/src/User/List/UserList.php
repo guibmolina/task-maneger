@@ -9,7 +9,7 @@ use Domain\User\Entities\UserEntity;
 use IteratorAggregate;
 use Traversable;
 
-/** @implements IteratorAggregate<Setting> */
+/** @implements IteratorAggregate<User> */
 class UserList implements IteratorAggregate
 {
     /** @var array<UserEntity> */
@@ -26,7 +26,7 @@ class UserList implements IteratorAggregate
     }
 
     /** @return array<UserEntity> */
-    public function products(): array
+    public function users(): array
     {
         return $this->users;
     }

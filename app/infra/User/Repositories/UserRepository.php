@@ -43,6 +43,18 @@ class UserRepository implements BaseUserRepository
         return $userList;
     }
 
+    public function findUsersByIds(array $usersId): UserList
+    {
+        $users = User::whereIn('id', $usersId)->get();
+        
+        $userList = new UserList();
+        foreach ($users as $user) {
+            $userList->add($this->mapUserEntityDomain($user));
+        }
+
+        return $userList;
+    }
+
     private function mapUserEntityDomain(User $user): UserEntity
     {
         return new UserEntity(

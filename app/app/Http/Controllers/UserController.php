@@ -19,8 +19,6 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request): JsonResponse
     {
-        $request->validated();
-
         $DTO = new DTO(
             $request->name,
             $request->email,
