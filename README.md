@@ -337,4 +337,4 @@ E como isso é feito de maneira assíncrona, precisamos rodar a fila do Laravel 
 
 ***
 ### Insomnia
-Segue no reposotório o arquivo .json da collection do Insomnia com todas as requisições (Insomnia_task_maneger.json)
+Segue no repositório o arquivo .json da collection do Insomnia com todas as requisições (Insomnia_task_maneger.json)
