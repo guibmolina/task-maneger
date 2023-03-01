@@ -35,3 +35,4 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www/task-maneger-app
 
 USER $user
+

@@ -8,7 +8,6 @@ use App\Jobs\TaksStatusUpdateEmailJob;
 use App\Jobs\TaskAttachedEmailJob;
 use Domain\Task\Entities\TaskEntity;
 use Domain\Task\Services\TaskService as BaseTaskService;
-use Domain\User\List\UserList;
 
 class TaskService implements BaseTaskService
 {
