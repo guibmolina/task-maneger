@@ -29,8 +29,8 @@ class ListUserTest extends TestCase
     /** @test */
     public function itMustReturnAnArrayOfUsers(): void
     {
-        self::assertIsArray($this->userList->products());
-        self::assertInstanceOf(UserEntity::class, $this->userList->products()[0]);
+        self::assertIsArray($this->userList->users());
+        self::assertInstanceOf(UserEntity::class, $this->userList->users()[0]);
     }
 
     /** @test */
