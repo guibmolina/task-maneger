@@ -65,7 +65,7 @@ class TaskController extends Controller
 
     public function index(Request $request): JsonResponse
     {
-        $users = $request->query('users');
+        $users = $request->query('user_id');
 
         $statusId = $request->query('status_id');
 

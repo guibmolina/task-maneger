@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['create']]);
+        $this->middleware('auth:api', ['except' => ['store']]);
     }
 
     public function store(StoreUserRequest $request): JsonResponse
