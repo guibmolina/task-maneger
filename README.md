@@ -16,7 +16,7 @@ git clone git@github.com:guibmolina/task-maneger.git
 
 Dentro da pasta do projeto, rode o seguinte comando: `docker-compose up -d`.
 
-Copie o arquivo `.env.example` a renomeie para `.env` dentro da pasta raíz da aplicação.
+Copie o arquivo `.env.example` e renomeie para `.env` dentro da pasta raíz da aplicação.
 
 ```bash
 cp .env.example .env
